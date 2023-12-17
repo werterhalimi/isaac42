@@ -57,7 +57,7 @@ const fetchCard = (i) => {
             const cardType = [...originSet.querySelectorAll('p')].map(c => c.textContent)
             originSet.remove()
             cardDesc.querySelectorAll('br, img, noscript').forEach(c => c.remove())
-            const description = cardDesc.textContent.replaceAll('\t','').replaceAll('\n', '')
+            const description = cardDesc.textContent.replaceAll('\t','').replaceAll('\n', '').replaceAll('\\', '')
             cardDesc = {description, cardType}
         }
         
