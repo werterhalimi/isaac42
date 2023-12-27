@@ -1,0 +1,193 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+  width:100%;
+  height:100%;
+  margin:0;
+  overflow:auto;
+
+  body{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    margin:0;
+    background:#EDEDED;
+    padding-top:60px;
+    position:relative;
+
+    header{
+      height:60px;
+      width:100%;
+      align-self: center;
+      margin:0;
+      display:flex;
+      padding:5px;
+      background: #65522B;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:100;
+
+      #logo{
+        background:url("https://foursouls.com/wp-content/uploads/2022/03/FourSoulsLogo-1024x584.png");
+        height:60px;
+        width:100px;
+        margin-right: 20px;
+        background-size:100px auto;
+      }
+
+      nav{
+        display: flex;
+        align-items: center;
+        margin-left:auto;
+        margin-right:80px;
+
+        a{
+          text-decoration: none;
+          color:#fff;
+          opacity:0.7;
+          font-family: "Papyrus", serif;
+          font-size:16px;
+          margin:5px;
+
+          &:hover{
+            opacity:1;
+          }
+        }
+      }
+    }
+
+    main{
+      width:100%;
+      min-height:100%;
+      z-index:2;
+      padding:20px;
+      display:flex;
+      align-items: center;
+      flex-direction: column;
+      position:relative;
+
+      #ancre{
+        display:flex;
+        flex-direction:column;
+        cursor:pointer;
+        position:fixed;
+        right:20px;
+        top:140px;
+        padding:10px;
+        border-radius: 15px;
+        background-color:#C7B29A;
+
+        span{
+          color:#fff;
+          opacity:0.7;
+          text-decoration: none;
+
+          &:hover{
+            opacity:1;
+          }
+        }
+      }
+
+      h1, h1 a{
+        font-family:"Comic Sans MS", sans-serif;
+        font-size:24px;
+        font-weight: 600;
+        color:#FFF;
+        margin:36px;
+        text-decoration: none;
+      }
+
+      .listCard{
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        padding:10px 0;
+        justify-content: space-around;
+        max-width:600px;
+
+        a{
+          margin:10px;
+          position:relative;
+          background-color:#C7B29A;
+          width:110px;
+          height:150px;
+
+          img{
+            height:150px;
+          }
+
+          &.vertical img{
+            transform: rotate(-90deg);
+            position:absolute;
+            top:20px;
+            left:-20px;
+            height:110px !important;
+          }
+
+          h3{
+            background:rgba(0,0,0,0.4);
+            color:#FFF;
+            position:absolute;
+            bottom:0;
+            left:0;
+            height:40px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            width:100%;
+            margin:0;
+            text-align:center;
+            font-family: Papyrus, serif;
+            font-size:14px;
+          }
+
+          &:hover{
+            h3{
+              height:100%;
+            }
+          }
+        }
+      }
+      aside:not(#ancre){
+        font-family: Papyrus, serif;
+        font-size:12px;
+        font-weight: 300;
+        color:#fff;
+        margin-top:80px;
+        padding-bottom:20px;
+      }
+    }
+
+    &::after{
+      width:100%;
+      height:100%;
+      position:fixed;
+      content:"";
+      top:0;
+      left:0;
+      background-image:url("../includes/parquet.png");
+      background-size:320px 80px;
+      background-position: 0;
+      background-repeat: repeat;
+      z-index:1;
+    }
+
+    &::before{
+      width:100%;
+      height:100%;
+      position:fixed;
+      content:"";
+      top:0;
+      left:0;
+      background-image:url("../includes/parquet_2.png");
+      background-size:320px 80px;
+      background-position: -60px;
+      background-repeat: repeat;
+      z-index:1;
+    }
+  }
+}
