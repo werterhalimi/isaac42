@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    restart: "no"
+
+  front:
+    restart: "no"
+
+    stdin_open:  true # docker run -i
+    tty: true        # docker run -t
+    ports:
+     - "8081:8081"
+    # ports:
+      # - "3000:3000"
+
+  bunjs:
+    restart: "no"
+
+    stdin_open:  true # docker run -i
+    tty: true        # docker run -t
+    ports:
+     - "3000:3000"
+    # ports:
+    #  - "3000"
+    # ports:
+    #   - "4000:4000"

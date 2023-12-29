@@ -1,0 +1,14 @@
+{
+  "name": "isaac",
+  "module": "index.tsx",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

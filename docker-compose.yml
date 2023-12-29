@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+
+ nginx:
+  image: nginx
+  container_name: isaac_nginx
+  environment:
+   - NGINX_HOST=localhost
+   - NGINX_PORT=80
+  ports:
+   - "8080:80"
+   - "8443:443"
+  networks:
+   - isaac_net
+  volumes:
+   - ./_build/nginx/default.conf:/etc/nginx/conf.d/default.conf
+   - ./_build/nginx/docker-entrypoint.sh:/docker-entrypoint.sh
+   - ./_build/nginx/certs:/etc/ssl/private/
+  depends_on:
+   - front
+  entrypoint: ["sh", "/docker-entrypoint.sh"]
+
+ front:
+  image: node
+  container_name: isaac_front
+  volumes:
+   - ./site:/app
+  working_dir: /app
+  command: npm run server
+  networks:
+   - isaac_net
+  depends_on:
+   - bunjs
+  entrypoint: ["tail", "-f", "/dev/null"]
+
+ bunjs:
+  image: oven/bun
+  container_name: isaac_bun
+  volumes:
+   - ./app:/home/bun/app
+  networks:
+   - isaac_net
+  depends_on:
+   - db
+  entrypoint: ["bun", "--smol", "run", "index.tsx"]
+  # bun --watch run dev
+
+ db:
+  image: mariadb
+  container_name: isaac_db
+  entrypoint: ["tail", "-f", "/dev/null"]
+
+networks:
+  isaac_net:
+    driver: bridge
+
